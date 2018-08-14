@@ -6,19 +6,24 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "ALIEN")
-//@NamedStoredProcedureQueries({
+@NamedStoredProcedureQueries({
 //        @NamedStoredProcedureQuery( name = "addalien", procedureName = "PKG_ALIEN.ADDALIEN", parameters = {
 //                        @StoredProcedureParameter(mode = ParameterMode.IN,name = "p_name",type = String.class),
 //                        @StoredProcedureParameter(mode = ParameterMode.IN,name = "mark",type = Integer.class)
 //                }
 //        ),
-//        @NamedStoredProcedureQuery(
-//                name = "Alien.findAlienViProcedure",
-//                procedureName = "PKG_ALIEN_JPA.GETALLALIEN",
-//                resultClasses = Alien.class,parameters = {
-//                    @StoredProcedureParameter(name = "o_res",mode = ParameterMode.REF_CURSOR,type = void.class)
-//        })
-//})
+        @NamedStoredProcedureQuery(
+                name = "getall",
+                procedureName = "PKG_ALIEN.GETALL",
+                resultClasses = Alien.class,
+                parameters =
+                        {
+                                @StoredProcedureParameter(name = "res",mode = ParameterMode.REF_CURSOR,type = void.class)
+                        }
+        )}
+
+
+        )
 public class Alien {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
